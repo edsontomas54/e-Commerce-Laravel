@@ -1,0 +1,15 @@
+
+composer require livewire/livewire
+
+creating  home livewire
+run:
+php artisan make:livewire homeComponent
+
+shop livewire
+php artisan make:livewire shopComponent
+
+checkout livewire
+php artisan make:livewire checkoutComponent
+
+cart livewire
+php artisan make:livewire cartComponent
