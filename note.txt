@@ -13,3 +13,50 @@ php artisan make:livewire checkoutComponent
 
 cart livewire
 php artisan make:livewire cartComponent
+
+====To use a breeze authentication u must first copy ur routes before you install it
+=====================
+<?php
+
+use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ShopComponent;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', HomeComponent::class)->name('home.index');
+Route::get('/shop', ShopComponent::class)->name('shop');
+Route::get('/cart', CartComponent::class)->name('shop.cart');
+Route::get('/checkout', CheckoutComponent::class)->name('shop.checkout');
+
+==================================================
+authentication
+ composer require laravel/breeze --dev
+then php artisan breeze:install
+npm install && npm run build
+
+admin auth:
+php artisan make:middleware AuthAdmin
+
+=================================================
+ php artisan make:livewire Admin/AdminDashboardComponent
+ =======================================================
+  php artisan make:livewire User/UserDashboardComponent
+
+shop ===And produtcs=======================
+ php artisan make:model Category -m
