@@ -60,3 +60,21 @@ php artisan make:middleware AuthAdmin
 
 shop ===And produtcs=======================
  php artisan make:model Category -m
+
+after migrations==============
+
+create factories=====and Models
+
+CATEGORY
+php artisan make:factory CategoryFactory -model=Category
+
+PRODUCTS
+php artisan make:factory ProductFactory -model=Product
+ then edit the factories that was created
+
+then go to seeders database
+set this:
+\App\Models\Category::factory(6)->create();
+\App\Models\Product::factory(16)->create();
+
+run php artisan db:seed
