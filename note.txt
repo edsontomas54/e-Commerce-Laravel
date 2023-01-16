@@ -78,3 +78,7 @@ set this:
 \App\Models\Product::factory(16)->create();
 
 run php artisan db:seed
+
+===============products details
+
+php artisan make:livewire DetailsComponent
