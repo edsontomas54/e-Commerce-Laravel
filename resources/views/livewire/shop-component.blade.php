@@ -1,4 +1,12 @@
 <div>
+    <style>
+        nav svg{
+            height: 20px;
+        }
+        nav .hidden{
+            display: block;
+        }
+    </style>
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -746,9 +754,8 @@
                             </div>
                             <div class="single-post clearfix">
                                 <div class="image">
-                                    <img src="assets/imgs/shop/thumbnail-5.jpg"
-                                        alt="#{{ asset('">
-                                                                     ') }}   </div>
+                                    <img src="{{asset('assets/imgs/shop/thumbnail-5.jpg')}}">
+                                </div>
                                 <div class="content
                                         pt-10">
                                     <h6><a href="product-details.html">Colorful Jacket</a></h6>
