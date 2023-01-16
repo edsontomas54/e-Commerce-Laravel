@@ -91,7 +91,7 @@
                                                     class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">To Hot</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
