@@ -67,7 +67,6 @@
                         </div>
                         <div class="row product-grid-3">
                             @foreach ($products as $product)
-
                             <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
@@ -91,7 +90,7 @@
                                                     class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">To Hot</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
@@ -109,8 +108,10 @@
                                             {{-- <span class="old-price">$245.8</span> --}}
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up"
-                                                href="shop-cart.php"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                <a aria-label="Add To Cart" class="action-btn hover-up"
+                                                 href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">
+                                                 <i class="fi-rs-shopping-bag-add"></i>
+                                                </a>
                                         </div>
                                     </div>
                                 </div>
