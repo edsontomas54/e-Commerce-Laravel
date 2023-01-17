@@ -80,5 +80,27 @@ set this:
 run php artisan db:seed
 
 ===============products details
-
 php artisan make:livewire DetailsComponent
+
+=========================
+
+========================cart implementation
+install with composer
+run:
+composer require hardevine/shoppingCart
+
+go to app.php in config and set this.
+Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
+Now inside the aliases in the same file array add
+'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+then run to create a cart file in config:
+
+ #php artisan vendor:publish --provider=\"Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="config"
+if the code not work run:
+
+ #php artisan vendor:publish
+ then choose the index number of config.
+
+ then go to shopComponent and do the code.

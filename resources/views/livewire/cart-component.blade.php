@@ -26,17 +26,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (Session::has('success_message'))
+                                        <div class="alert alert-success">
+                                            <strong>Success | {{Session::get('success_message')}}</strong>
+                                        </div>
+                                    @endif
+                                    @if (Cart::count()>0)
+                                    @foreach (Cart::content() as $item)
                                     <tr>
-                                        <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-1-2.jpg')}}"
+                                        {{-- <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-1-2.jpg')}}" --}}
+                                        <td class="image product-thumbnail"><img src="{{ asset('assets/imgs/shop/product-')}}{{$item->model->id}}-1.jpg"
                                                 alt="#"></td>
                                         <td class="product-des product-name">
-                                            <h5 class="product-name"><a href="product-details.html">J.Crew Mercantile
-                                                    Women's Short-Sleeve</a></h5>
-                                            <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy
+                                            <h5 class="product-name"><a href="product-details.html">
+                                            {{$item->model->name}}
+                                            </a></h5>
+                                            {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy
                                                 magndapibus.
-                                            </p>
+                                            </p> --}}
                                         </td>
-                                        <td class="price" data-title="Price"><span>$65.00 </span></td>
+                                        <td class="price" data-title="Price"><span>{{$item->model->regular_price}}</span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
                                                 <a href="#" class="qty-down"><i
@@ -47,12 +56,18 @@
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
-                                            <span>$65.00 </span>
+                                            <span>{{$item->subtotal}}</span>
                                         </td>
                                         <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
                                                     class="fi-rs-trash"></i></a></td>
                                     </tr>
-                                    <tr>
+
+
+                                    @endforeach
+                                    @else
+                                    <p>No intem in the cart</p>
+                                    @endif
+                                    {{-- <tr>
                                         <td class="image"><img src="{{asset('assets/imgs/shop/product-11-2.jpg')}}" alt="#">
                                         </td>
                                         <td class="product-des">
@@ -101,7 +116,7 @@
                                         </td>
                                         <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
                                                     class="fi-rs-trash"></i></a></td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <td colspan="6" class="text-end">
                                             <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i>
@@ -429,7 +444,12 @@
                                                 <tr>
                                                     <td class="cart_total_label">Cart Subtotal</td>
                                                     <td class="cart_total_amount"><span
-                                                            class="font-lg fw-900 text-brand">$240.00</span></td>
+                                                            class="font-lg fw-900 text-brand">{{$item->subtotal}}</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="cart_total_label">Tax</td>
+                                                    <td class="cart_total_amount"><span
+                                                            class="font-lg fw-900 text-brand">{{Cart::tax()}}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Shipping</td>
@@ -439,7 +459,7 @@
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
                                                     <td class="cart_total_amount"><strong><span
-                                                                class="font-xl fw-900 text-brand">$240.00</span></strong>
+                                                                class="font-xl fw-900 text-brand">{{Cart::total()}}</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
