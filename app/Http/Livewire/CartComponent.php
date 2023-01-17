@@ -13,21 +13,25 @@ class CartComponent extends Component
         $product =Cart::get($rowId);
         $qty =$product->qty + 1;
         Cart::update($rowId, $qty);
+        $this->emitTo('cart-icon-component', 'refreshComponent');
     }
     public function decreaseQuantity($rowId)
     {
         $product =Cart::get($rowId);
         $qty =$product->qty - 1;
         Cart::update($rowId, $qty);
+        $this->emitTo('cart-icon-component', 'refreshComponent');
     }
     public function destroy($id)
     {
         Cart::remove($id);
         session()->flash('success_message','Item has been removed!');
+        $this->emitTo('cart-icon-component', 'refreshComponent');
     }
     public function clearAll()
     {
         Cart::destroy();
+        $this->emitTo('cart-icon-component', 'refreshComponent');
     }
     public function render()
     {

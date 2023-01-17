@@ -104,3 +104,6 @@ if the code not work run:
  then choose the index number of config.
 
  then go to shopComponent and do the code.
+
+ =================================Cart icon 
+php artisan make:livewire CartIconComponent
