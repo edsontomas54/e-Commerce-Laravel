@@ -105,5 +105,14 @@ if the code not work run:
 
  then go to shopComponent and do the code.
 
- =================================Cart icon 
+ =================================Cart icon
 php artisan make:livewire CartIconComponent
+========================================
+
+Category sorting create first:
+
+php artisan make:livewire CartIconComponent
+
+then go ahead copy all content from shopComponent class as file... and paste at categoryComponet
+
+dont forget to make a route for categorycomponet
