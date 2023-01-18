@@ -115,4 +115,7 @@ php artisan make:livewire CartIconComponent
 
 then go ahead copy all content from shopComponent class as file... and paste at categoryComponet
 
-dont forget to make a route for categorycomponet
+don't forget to make a route for categorycomponet
+
+==========================================Search Component ======
+php artisan make:livewire HeaderSearchComponent
